@@ -1,0 +1,10 @@
+Flask==2.0.1
+catboost==1.2.7
+numpy==1.26.4
+pandas==2.2.2
+matplotlib==3.7.1
+scipy==1.13.1
+streamlit==1.39.0
+plotly==5.13.0
+scikit-learn==1.5.2
+optuna==4.0.0
