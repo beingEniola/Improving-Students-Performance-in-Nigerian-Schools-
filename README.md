@@ -21,10 +21,10 @@ Simulated Data Includes:
 This pipeline is designed to manage student and school-related data, storing CSV files in AWS S3, and loading them into Snowflake for centralized management and analysis. The pipeline is orchestrated using Apache Airflow to automate the data ingestion process and ensure efficient handling of daily operations such as exam results, attendance, and performance tracking.
 
 **Airflow Architecture**
-![airflow-architecture](airflow/diagrams/airflow-architecture.png) 
+![airflow_architecture](airflow/diagrams/airflow-architecture.png) 
 
 **Database Schema**
-![database-schema](airflow/diagrams/database-schema.jpg) 
+![database_schema](airflow/diagrams/database-schema.jpg) 
 
 
 **Data Sources**
