@@ -51,19 +51,19 @@ if st.button("Make Prediction"):
         if predictions[0] == 1:
             st.write("The student is likely to pass.")
             
-            # Create a DataFrame for the bar chart
+            # Create a DataFrame for the bar chart.
             prob_df = pd.DataFrame({
                 'Class': ['Fail', 'Pass'],
                 'Probability': [1 - pass_probs, pass_probs]  
             })
 
-            # Display bar chart for prediction probabilities
+            # Display bar chart for prediction probabilities.
             st.bar_chart(prob_df.set_index('Class'))
             
         elif predictions[0] == 0:
             st.write("The student is likely to fail.")
             
-            # Display prediction probabilities
+            # Display prediction probabilities.
             st.write(f"Prediction Probabilities: {probability[0]}")
             
             # Create a DataFrame for the bar chart.
