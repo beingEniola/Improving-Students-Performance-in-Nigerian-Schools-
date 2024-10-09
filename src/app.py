@@ -75,6 +75,6 @@ if st.button("Make Prediction"):
             # Display bar chart for prediction probabilities.
             st.bar_chart(prob_df.set_index('Class'))
         
-    else:
-        st.error("Prediction failed.")
+    # else:
+    #     st.error("Prediction failed.") 
 
