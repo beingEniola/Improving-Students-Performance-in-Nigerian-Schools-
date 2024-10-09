@@ -28,11 +28,10 @@ In the EDA phase, we explored relationships between different variables to uncov
 
 Insights gotten from the analysis are : 
 1. Students who partake actively in class have high performance than students who rarely participate in class activities
-
-
-
-
-
+2. Students who take private lessons tend to perform better, on average, than those who do not
+3. Higher levels of parental education do not necessarily lead to improved academic outcomes for their children.
+4. Students without internet access perform better on average than those with internet access
+5. Students who participated in extracurricular activities perform better academically, with a higher average score than those who don't.
 
 
 #### - Model Building 
