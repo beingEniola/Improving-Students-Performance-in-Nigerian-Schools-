@@ -27,7 +27,7 @@ Simulated Data Includes:
 In the EDA phase, we explored relationships between different variables to uncover patterns, correlations, and key insights. By performing descriptive statistics and visualizations, we aimed to understand how various factors impact student performance.
 
 Insights gotten from the analysis are : 
-1. 
+1. Students who partake actively in class have high performance than students who rarely participate in class activities
 
 
 
