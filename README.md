@@ -64,8 +64,19 @@ Insights gotten from the analysis are :
 4. Students without internet access perform better on average than those with internet access
 5. Students who participated in extracurricular activities perform better academically, with a higher average score than those who don't.
 
-
 ### - Model Building 
+
+The core of the project is developing a predictive model to forecast student success in upcoming exams. Based on the data collected, we chose to use a CatBoost Classifier because of its built-in categorical handling mechanism.
+
+Features Used:
+
+Academic performance metrics (test scores, continuous assessments).
+Attendance rates and class participation.
+Socio-economic factors (parental education, income levels, access to technology).
+Student engagement in extracurricular activities.
+
+The model is trained on 80% of the data and tested on 20% to evaluate its accuracy in predicting whether a student will pass or fail the exams.
+
 ### - Model Evaluation
 
 ### - Model Interpretation 
