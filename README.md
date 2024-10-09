@@ -1,11 +1,11 @@
-## Improving Students Performance in Nigerian Schools
+# Improving Students Performance in Nigerian Schools
 This project focuses on using data analytics to improve student performance developing a comprehensive data pipeline, predictive models, and actionable insights.
 
-### - Problem Definition
+## - **Problem Definition**
  
 In many Nigerian schools, student performance in key examinations remains subpar, as seen in recent results where a significant percentage of students scored below average in the JAMB UTME. This project seeks to address the underlying causes of poor student performance by collecting and analyzing data on factors that influence academic success. Our goal is to use data to identify at-risk students and provide recommendations for interventions that can improve their exam outcomes.
 
-### - Data Collection
+## - **Data Collection**
 
 Since many schools lack a data infrastructure and we could not get real data, we simulated all data used taking into account the realities of Nigerian schools.
 
@@ -17,24 +17,31 @@ Simulated Data Includes:
 4. Subjects Data: Information on the subjects taken in the school
 5. Teachers Data: Teachers information.
 
-### - Database Building
+## - **Database Building**
 This pipeline is designed to manage student and school-related data, storing CSV files in AWS S3, and loading them into Snowflake for centralized management and analysis. The pipeline is orchestrated using Apache Airflow to automate the data ingestion process and ensure efficient handling of daily operations such as exam results, attendance, and performance tracking.
 
-Data Sources
+**Airflow Architecture**
+![airflow_architecture](airflow/diagrams/airflow-architecture.png) 
+
+**Database Schema**
+![database_schema](airflow/diagrams/database-schema.jpg) 
+
+
+**Data Sources**
 
 * CSV File Structure: The pipeline ingests data from CSV files containing student records, exam results, and other school-related data.
 * Frequency: CSV files are generated daily/weekly.
 * Naming Convention: Files are named using the pattern school_{date}.csv.
    
-S3 Setup
+**S3 Setup**
 *  S3 Bucket: school-db-bucket
 * Folder Structure: Files are organized based on year and month for easier retrieval. Example: students/{year}/{month}/
 *  Retention Policy: Files are retained for 1 year before they are archived or deleted based on school policies.
 
- Snowflake Setup
+**Snowflake Setup**
 * Destination Table: Data from the CSV files will be loaded into its respective Snowflake table
   
-Airflow Orchestration
+**Airflow Orchestration**
 *  Airflow DAG: The pipeline is orchestrated by an Airflow DAG which automates the process of data extraction, transformation, and loading (ETL).
    Tasks:
     * Extract Task: Fetch CSV files containing student data from the source.
@@ -42,18 +49,19 @@ Airflow Orchestration
     * Load Task: Load data from S3 to Snowflake using the COPY INTO command.
     *  Schedule: The pipeline is to be run at the end of each term
       
-Monitoring and Logging
+**Monitoring and Logging**
 * Monitoring: The pipeline is monitored using Airflow's UI and logging system.
     *All task executions and failures are logged for troubleshooting.
 * Alerting: Alerts are set up via email to notify the admin of any failures or delays in the pipeline.
 * Data Quality Checks: Row count checks and validation rules are run before loading data into Snowflake to ensure integrity.
 
- Security and Permissions
+**Security and Permissions**
 AWS IAM Policy: Proper IAM policy isset to control access to the S3 bucket, ensuring that only authorized users and systems can read or write data.
 
+The **school data** can be accessed [here](airflow/dags/school)
 
 
-### - Exploratory Data Analysis 
+## - **Exploratory Data Analysis**
 
 In the EDA phase, we explored relationships between different variables to uncover patterns, correlations, and key insights. By performing descriptive statistics and visualizations, we aimed to understand how various factors impact student performance.
 
@@ -64,7 +72,7 @@ Insights gotten from the analysis are :
 4. Students without internet access perform better on average than those with internet access
 5. Students who participated in extracurricular activities perform better academically, with a higher average score than those who don't.
 
-### - Model Building 
+## - **Model Building**
 
 The core of the project is developing a predictive model to forecast student success in upcoming exams. Based on the data collected, the CatBoost algorithm was chosen for this study due to its efficiency in handling categorical variables. With 14 out of 15 features in our dataset being categorical, CatBoost's native processing capability eliminated the need for additional preprocessing, avoiding the introduction of noise and redundant features from traditional encoding methods.
 
@@ -72,7 +80,7 @@ CatBoost’s ability to accurately manage categorical features made it the ideal
 
 To optimize performance, we employed hyperparameter tuning using RandomizedSearchCV and Bayesian Optimization with Optuna. The latter method outperformed the former by efficiently selecting hyperparameters that enhanced model performance. The best parameters included a learning rate of clf_leaf, 1000 iterations, and the boosting type set to “Ordered.”
 
-Features Used:
+**Features Used:**
 
 Academic performance metrics (test scores, continuous assessments).
 Attendance rates and class participation.
@@ -82,7 +90,7 @@ Student engagement in extracurricular activities.
 The model is trained on 75% of the data and tested on 25% to evaluate its accuracy in predicting whether a student will pass or fail the exams.
 
 
-### - Model Evaluation
+## - **Model Evaluation**
 The CatBoost model was evaluated on 75 validation samples, yielding strong performance metrics:
 
 #### **Before Hyperparamter Tuning**
@@ -128,7 +136,7 @@ The log-loss graph illustrated continuous loss reduction with increasing iterati
 These results highlight the effectiveness of Bayesian Optimization in enhancing model accuracy and robustness for our dataset.
 
 
-### - Model Interpretation 
+## - **Model Interpretation**
 **Model interpretation** is crucial for helping educators understand why the model makes specific decisions, enabling them to focus their attention on key areas that influence student performance. The feature importance analysis revealed that extracurricular activities, private lessons, and active class participation were the most significant contributors to the model's predictions.
 
 **Feature Importance**
@@ -142,8 +150,14 @@ To gain further insights, we used SHapley Additive exPlanations (SHAP), which de
 
 
 
-### - Model Deployment 
+## - **Model Deployment**
 The model was deployed using Streamlit on Streamlit Cloud services, providing an interactive web application for real-time predictions. We created an interactive application that allows educators to input student data and receive predictions, enabling data-driven decisions to enhance student performance.
 
-You can access the application [here](https://).
+You can access the application [here](https://student-performance-predictionn.streamlit.app).
+
+
+
+## **License**
+This project is licensed under the MIT License.
+See the [LICENSE](LICENSE) file for more information.
 
