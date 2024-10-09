@@ -114,7 +114,7 @@ These metrics indicate no overfitting, as validation scores closely matched trai
 The log-loss graph illustrated continuous loss reduction with increasing iterations, supporting the model's robustness. 
 
 **Model Learning Curve**
-![logloss](model-output\model-learning-curve.jpg) 
+![logloss](model-output/model-learning-curve.jpg) 
 
 **After hyperparameter tuning** with Bayesian Optimization, performance significantly improved: 
 
@@ -140,13 +140,13 @@ These results highlight the effectiveness of Bayesian Optimization in enhancing 
 **Model interpretation** is crucial for helping educators understand why the model makes specific decisions, enabling them to focus their attention on key areas that influence student performance. The feature importance analysis revealed that extracurricular activities, private lessons, and active class participation were the most significant contributors to the model's predictions.
 
 **Feature Importance**
-![Feature Importance](model-output\model-feature-importance.jpg)
+![Feature Importance](model-output/model-feature-importance.jpg)
 
 
 To gain further insights, we used SHapley Additive exPlanations (SHAP), which demonstrated how each feature influenced individual predictions. SHAP provided transparency, showing educators which factors drive the model’s decisions, helping them make informed choices to support student improvement.
 
 **Model Interpretation Using SHAP**
-![SHAP](model-output\shap_values.jpg)
+![SHAP](model-output/shap_values.jpg)
 
 
 
